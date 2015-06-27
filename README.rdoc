@@ -1,0 +1,6 @@
+== README
+
+This is my breakable toy.
+
+It tracks which pairs of your shoes are worn on any given day
+so that it can give you statistics on your shoe wearing habits and preferences.

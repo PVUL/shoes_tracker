@@ -1,0 +1,20 @@
+<h2>shoes index page</h2>
+<%= link_to 'Add New Shoes', new_shoe_path %>
+
+<% if !@shoes.empty? %>
+  <table class="small-6">
+    <tr>
+      <th>Model</th>
+      <th>Brand</th>
+      <th>Color</th>
+    </tr>
+    <%- @shoes.each do |shoe| -%>
+      <tr>
+        <td><%= shoe.model %></td>
+        <td><%= shoe.brand %></td>
+        <td><%= shoe.color %></td>
+        <td><%= link_to 'delete', shoe_path(shoe), method: :delete %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>
