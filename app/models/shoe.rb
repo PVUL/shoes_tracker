@@ -1,4 +1,4 @@
 class Shoe < ActiveRecord::Base
-  has_many :collections
-  has_many :users, through: :collections
+  has_many :user_shoes
+  has_many :users, through: :user_shoes
 end

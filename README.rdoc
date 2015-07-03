@@ -24,3 +24,8 @@ todo next:
 6/29 notes -- to/do
 take out the delete buttons for those shoes that are still owned
 by users. that way the shoes cannot disappear from users shoe collection
+
+7/3 to do --
+root takes you to a signup/signin page
+unless you have shoes in your acct,
+you see other peoples shoes, and have ability to add shoes

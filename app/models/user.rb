@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :collections
-  has_many :shoes, through: :collections
+  has_many :user_shoes
+  has_many :shoes, through: :user_shoes
 end

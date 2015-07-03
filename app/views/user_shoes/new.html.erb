@@ -1,0 +1,14 @@
+<h2>user shoes new page</h2>
+<%#= link_to 'Back to Global Shoes', root_path %>
+
+<div class="small-4">
+  <%= form_for @shoe do |f| %>
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+    <%= f.submit 'Submit' %>
+  <%- end -%>
+</div>

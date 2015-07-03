@@ -8,15 +8,17 @@ class ShoesController < ApplicationController
     @shoe = Shoe.new
   end
 
+  # must refactor this
   def create
     @shoe = Shoe.new(shoe_params)
-    @collection = Collection.new
-    @collection.user = current_user
-    @collection.shoe = @shoe
+    @userShoe = UserShoe.new
+    @userShoe.user = current_user
+    @userShoe.shoe = @shoe
     if @shoe.save
-      if !@collection.user.nil?
-        @collection.save
-        redirect_to user_collections_path(@collection.user)
+      if !@userShoe.user.nil?
+        @userShoe.save
+        flash[:notice] = 'Successfully Added'
+        redirect_to user_shoes_path
       else
         redirect_to root_path
       end
@@ -30,16 +32,15 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    @collection = Collection.find_by(shoe_id: params[:id])
+    @userShoe = User_shoe.find_by(shoe_id: params[:id])
     @user = current_user
-    if !current_user.nil? && !@collection.nil?
-      @collection.destroy
-      redirect_to user_collections_path(@user)
+    if !current_user.nil? && !@userShoe.nil?
+      @userShoe.destroy
+      redirect_to user_shoes_path
     else
       @shoe = Shoe.find(params[:id]).destroy
       redirect_to root_path
     end
-
   end
 
   private
