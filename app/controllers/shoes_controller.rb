@@ -1,6 +1,7 @@
 class ShoesController < ApplicationController
   def index
     @shoes = Shoe.all
+    @user = current_user
   end
 
   def new
@@ -9,8 +10,16 @@ class ShoesController < ApplicationController
 
   def create
     @shoe = Shoe.new(shoe_params)
+    @collection = Collection.new
+    @collection.user = current_user
+    @collection.shoe = @shoe
     if @shoe.save
-      redirect_to root_path
+      if !@collection.user.nil?
+        @collection.save
+        redirect_to user_collections_path(@collection.user)
+      else
+        redirect_to root_path
+      end
     else
       render :new
     end
@@ -21,8 +30,16 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    @shoe = Shoe.find_by(id: params[:id]).destroy
-    redirect_to root_path
+    @collection = Collection.find_by(shoe_id: params[:id])
+    @user = current_user
+    if !current_user.nil? && !@collection.nil?
+      @collection.destroy
+      redirect_to user_collections_path(@user)
+    else
+      @shoe = Shoe.find(params[:id]).destroy
+      redirect_to root_path
+    end
+
   end
 
   private

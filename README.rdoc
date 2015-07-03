@@ -4,3 +4,23 @@ This is my breakable toy.
 
 It tracks which pairs of your shoes are worn on any given day
 so that it can give you statistics on your shoe wearing habits and preferences.
+--
+
+Version 0.1.0
+6/27/15
+
+-User can add new shoes
+-User can delete shoes
+
+todo next:
+-create
+
+@user = User.find(:id)
+@user.shoes.all --- this displays all shoes that @user owns
+
+@user.shoes.pluck(:model) -- this will display users shoes in an array--- ["Dunks", "air force 1"]
+
+
+6/29 notes -- to/do
+take out the delete buttons for those shoes that are still owned
+by users. that way the shoes cannot disappear from users shoe collection
