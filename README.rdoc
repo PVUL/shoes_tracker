@@ -29,3 +29,27 @@ by users. that way the shoes cannot disappear from users shoe collection
 root takes you to a signup/signin page
 unless you have shoes in your acct,
 you see other peoples shoes, and have ability to add shoes
+
+
+http://localport:3000/ -
+
+/users/sign_up - user sign up
+/users/sign_in - user sign in
+
+/shoes - shoes index
+/shoes/new - add new shoes global
+
+/user_shoes - my shoes index (myshoes)
+
+*Question I need to answer is:
+1. when do I see all shoes?
+2. when do I see just my shoes?
+3. as a user will I ever see all shoes?
+4. create a super user? that has admin access?
+   and gets to see all shoes?
+5. how will feed be handled?
+6. what is the feature priority?
+   first work on all CRUD features for shoes
+
+7. shoe index page---- dynamic, based on who user is
+8. admin, will have

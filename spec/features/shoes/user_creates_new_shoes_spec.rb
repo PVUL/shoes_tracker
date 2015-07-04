@@ -30,7 +30,7 @@ feature 'user creates new shoes', %{
     end
 
     scenario 'specify required information' do
-      visit new_user_shoe_path
+      visit new_shoe_path
 
       fill_in 'Model', with: 'Air Max 90'
       fill_in 'Brand', with: 'Nike'

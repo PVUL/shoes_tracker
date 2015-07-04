@@ -1,4 +1,4 @@
-<h2>user shoes index page</h2>
+<h2>My Shoes</h2>
 <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
 
 <% if !@shoes.empty? %>
@@ -13,7 +13,7 @@
         <td><%= shoe.model %></td>
         <td><%= shoe.brand %></td>
         <td><%= shoe.color %></td>
-        <td><%#= link_to 'edit', user_collection_path(shoe.users, shoe.collections.pluck(:id).first) %>
+        <td><%= link_to 'edit', '#' %>
         <td><%= link_to 'delete', shoe_path(shoe), method: :delete %></td>
       </tr>
     <%- end -%>

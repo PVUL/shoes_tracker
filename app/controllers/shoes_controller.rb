@@ -1,7 +1,11 @@
 class ShoesController < ApplicationController
   def index
-    @shoes = Shoe.all
-    @user = current_user
+    if !current_user.nil?
+      @user = current_user
+      @shoes = @user.shoes
+    else
+      @shoes = Shoe.all
+    end
   end
 
   def new
