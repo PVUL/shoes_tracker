@@ -1,7 +1,11 @@
-<h2>this will be my personal shoes index</h2>
-<%= link_to 'Add New Shoes', new_shoe_path %><br>
+<%- if !current_user.nil? -%>
+  <h2>My Shoes</h2>
+  <%= link_to 'Add New Shoes', new_shoe_path %><br>
+<%- else -%>
+  <h2>All Shoes</h2>
+<%- end -%>
 
-<% if !@shoes.empty? %>
+<%- if !@shoes.empty? -%>
   <table class="small-6">
     <tr>
       <th>Model</th>
