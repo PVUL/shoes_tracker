@@ -23,7 +23,7 @@ class ShoesController < ApplicationController
       @userShoe = UserShoe.new(user: current_user, shoe: @shoe)
       @userShoe.save
       flash[:notice] = 'Successfully Added'
-      redirect_to shoes_path
+      redirect_to root_path
     else
       flash[:notice] = @shoe.errors.full_messages.join('. ')
       render :new
@@ -35,11 +35,12 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    @userShoe = User_shoe.find_by(shoe_id: params[:id])
+    @userShoe = UserShoe.find_by(shoe_id: params[:id])
     @user = current_user
     if !current_user.nil? && !@userShoe.nil?
       @userShoe.destroy
-      redirect_to user_shoes_path
+      flash[:notice] = "Successfully Deleted"
+      redirect_to root_path
     else
       @shoe = Shoe.find(params[:id]).destroy
       redirect_to root_path
@@ -51,5 +52,4 @@ class ShoesController < ApplicationController
   def shoe_params
     params.require(:shoe).permit(:model, :brand, :color)
   end
-
 end

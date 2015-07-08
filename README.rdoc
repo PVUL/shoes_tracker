@@ -53,3 +53,9 @@ http://localport:3000/ -
 
 7. shoe index page---- dynamic, based on who user is
 8. admin, will have
+
+7/4 - New branch "delete-shoes"
+      spec file created for tdd
+      create feature for user to delete shoes
+      technically, it will not delete the shoe
+      it will delete the user_id-shoe_id relationship
