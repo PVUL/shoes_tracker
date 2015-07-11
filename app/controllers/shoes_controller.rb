@@ -2,7 +2,6 @@ class ShoesController < ApplicationController
   def index
     if !current_user.nil?
       @user = current_user
-      # @shoes = @user.shoes
       @userShoes = UserShoe.where(user: @user)
     else
       @userShoes = UserShoe.all

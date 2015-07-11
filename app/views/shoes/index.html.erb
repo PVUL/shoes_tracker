@@ -26,4 +26,11 @@
       </tr>
     <%- end -%>
   </table>
+
+  <div class="small-4">
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
+
 <%- end -%>
