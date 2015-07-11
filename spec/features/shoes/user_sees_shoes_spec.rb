@@ -13,7 +13,9 @@ feature 'user sees all shoes', %{
   let!(:shoe) { Shoe.create(brand: "Nike", model: "Air Force 1", color: "Black") }
   let!(:shoe2) { Shoe.create(brand: "Puma", model: "Trainers", color: "Pink") }
   let!(:user) { User.create(email: "dev@web.com", password: "12345678") }
-  let!(:userShoe) { UserShoe.create(user_id: user.id, shoe_id: shoe.id) }
+  let!(:user2) { User.create(email: "test@web.com", password: "12345678") }
+  let!(:userShoe) { UserShoe.create(user: user, shoe: shoe) }
+  let!(:userShoe2) { UserShoe.create(user: user2, shoe: shoe2) }
 
   context 'user is signed in' do
     before(:each) do

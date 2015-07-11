@@ -2,9 +2,10 @@ class ShoesController < ApplicationController
   def index
     if !current_user.nil?
       @user = current_user
-      @shoes = @user.shoes
+      # @shoes = @user.shoes
+      @userShoes = UserShoe.where(user: @user)
     else
-      @shoes = Shoe.all
+      @userShoes = UserShoe.all
     end
   end
 
@@ -35,7 +36,7 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    @userShoe = UserShoe.find_by(shoe_id: params[:id])
+    @userShoe = UserShoe.find(params[:id])
     @user = current_user
     if !current_user.nil? && !@userShoe.nil?
       @userShoe.destroy

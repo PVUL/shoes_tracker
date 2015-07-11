@@ -5,19 +5,24 @@
   <h2>All Shoes</h2>
 <%- end -%>
 
-<%- if !@shoes.empty? -%>
-  <table class="small-6">
+<%- if !@userShoes.empty? -%>
+  <table class="small-8">
     <tr>
       <th>Model</th>
       <th>Brand</th>
       <th>Color</th>
+      <th>Total Check-ins</th>
+      <th>Last Check-in</th>
     </tr>
-    <%- @shoes.each do |shoe| -%>
+    <%- @userShoes.each do |userShoe| -%>
       <tr>
-        <td><%= shoe.model %></td>
-        <td><%= shoe.brand %></td>
-        <td><%= shoe.color %></td>
-        <td><%= link_to 'delete', shoe_path(shoe), method: :delete %></td>
+        <td><%= userShoe.shoe.model %></td>
+        <td><%= userShoe.shoe.brand %></td>
+        <td><%= userShoe.shoe.color %></td>
+        <td><%= userShoe.check_ins.count %></td>
+        <td><%= userShoe.check_ins.pluck(:date).last %></td>
+        <td><%= link_to 'check in', shoe_check_ins_path(userShoe), method: :post %></td>
+        <td><%= link_to 'delete', shoe_path(userShoe), method: :delete %></td>
       </tr>
     <%- end -%>
   </table>
