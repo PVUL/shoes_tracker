@@ -27,10 +27,8 @@
     <%- end -%>
   </table>
 
-  <div class="small-4">
-    <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
-  </div>
+  <%= calendar do |date| %>
+    <%= date.day %>
+  <%- end -%>
 
 <%- end -%>
