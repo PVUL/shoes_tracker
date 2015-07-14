@@ -25,6 +25,10 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :test do
+  gem 'coveralls', require: false
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'puma'
