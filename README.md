@@ -2,6 +2,8 @@
 ![Code Climate](https://codeclimate.com/github/PVUL/shoes_tracker.png)
 ![Coverage Status](https://coveralls.io/repos/PVUL/shoes_tracker/badge.png)
 
+[![Coverage Status](https://coveralls.io/repos/PVUL/shoes_tracker/badge.svg?branch=master&service=github)](https://coveralls.io/github/PVUL/shoes_tracker?branch=master)
+
 Shoes Tracker
 --
 This is my breakable toy.
