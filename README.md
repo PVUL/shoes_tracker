@@ -14,6 +14,7 @@ Version 0.1.1
 
 1. User can check-in their shoes
 2. Calendar view in dash
+3. Test Badges in readme
 
 Version 0.1.0
 (6/27/15)
