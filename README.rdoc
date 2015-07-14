@@ -4,3 +4,58 @@ This is my breakable toy.
 
 It tracks which pairs of your shoes are worn on any given day
 so that it can give you statistics on your shoe wearing habits and preferences.
+--
+
+Version 0.1.0
+6/27/15
+
+-User can add new shoes
+-User can delete shoes
+
+todo next:
+-create
+
+@user = User.find(:id)
+@user.shoes.all --- this displays all shoes that @user owns
+
+@user.shoes.pluck(:model) -- this will display users shoes in an array--- ["Dunks", "air force 1"]
+
+
+6/29 notes -- to/do
+take out the delete buttons for those shoes that are still owned
+by users. that way the shoes cannot disappear from users shoe collection
+
+7/3 to do --
+root takes you to a signup/signin page
+unless you have shoes in your acct,
+you see other peoples shoes, and have ability to add shoes
+
+
+http://localport:3000/ -
+
+/users/sign_up - user sign up
+/users/sign_in - user sign in
+
+/shoes - shoes index
+/shoes/new - add new shoes global
+
+/user_shoes - my shoes index (myshoes)
+
+*Question I need to answer is:
+1. when do I see all shoes?
+2. when do I see just my shoes?
+3. as a user will I ever see all shoes?
+4. create a super user? that has admin access?
+   and gets to see all shoes?
+5. how will feed be handled?
+6. what is the feature priority?
+   first work on all CRUD features for shoes
+
+7. shoe index page---- dynamic, based on who user is
+8. admin, will have
+
+7/4 - New branch "delete-shoes"
+      spec file created for tdd
+      create feature for user to delete shoes
+      technically, it will not delete the shoe
+      it will delete the user_id-shoe_id relationship
