@@ -10,6 +10,8 @@ This is my breakable toy.
 It tracks which pairs of your shoes are worn on any given day
 so that it can give you statistics on your shoe wearing habits and preferences.
 
+[shoegame.herokuapp.com](http://shoegame.herokuapp.com)
+
 Version 0.1.1
 (7/14/15)
 
