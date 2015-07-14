@@ -1,7 +1,5 @@
 ![Build Status](https://codeship.com/projects/a4b802d0-0741-0133-711b-7ed36be266d6/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/PVUL/shoes_tracker.png)
-![Coverage Status](https://coveralls.io/repos/PVUL/shoes_tracker/badge.png)
-
 [![Coverage Status](https://coveralls.io/repos/PVUL/shoes_tracker/badge.svg?branch=master&service=github)](https://coveralls.io/github/PVUL/shoes_tracker?branch=master)
 
 Shoes Tracker
