@@ -11,7 +11,10 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'foundation-rails'
-gem 'sdoc', '~> 0.4.0', group: :doc
+
+group :doc do
+  gem 'sdoc', '~> 0.4.0'  
+end
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
