@@ -13,15 +13,10 @@ so that it can give you statistics on your shoe wearing habits and preferences.
 
 <a href="http://shoegame.herokuapp.com" target="_blank">shoegame.herokuapp.com</a>
 
-Version 0.1.1
-(7/14/15)
+*0.1.2
+(7/15/15)
 
 1. User can check-in their shoes
 2. Calendar view in dash
 3. Test Badges in readme
-
-Version 0.1.0
-(6/27/15)
-
-1. User can add new shoes
-2. User can delete shoes
+4. Photo uploads
