@@ -11,7 +11,7 @@ class UserShoesController < ApplicationController
       @userShoe = UserShoe.new(user_shoe_params)
       @userShoe.user = @user
       @userShoe.shoe = @shoe
-      @userShoe.save
+      @userShoe.save!
       flash[:notice] = 'Successfully Added'
       redirect_to root_path
     else

@@ -5,7 +5,6 @@ class CheckInsController < ApplicationController
     @userShoe = UserShoe.find_by(shoe: params[:shoe_id])
     @date = Time.now.strftime("%m/%d/%y")
     @checkIn = CheckIn.new(user_shoe: @userShoe, date: @date)
-binding.pry
     if @checkIn.save
       flash[:notice] = "Successfully Checked In"
       redirect_to root_path

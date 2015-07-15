@@ -2,9 +2,7 @@ class Shoe < ActiveRecord::Base
   has_many :user_shoes
   has_many :users, through: :user_shoes
 
-  accepts_nested_attributes_for :user_shoes, \
-  :reject_if => proc {|attributes| attributes['filename'].blank? \
-  && attributes['filename_cache'].blank?}
+  accepts_nested_attributes_for :user_shoes
 
   validates :brand, presence: true
   validates :model, presence: true
