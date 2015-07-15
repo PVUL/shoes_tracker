@@ -1,6 +1,6 @@
 class UserShoesController < ApplicationController
   def new
-    @userShoe = UserShoe.new
+    @user_shoe = UserShoe.new
     @shoe = Shoe.new
   end
 
@@ -8,10 +8,10 @@ class UserShoesController < ApplicationController
     @user = current_user
     @shoe = Shoe.new(shoe_params)
     if @shoe.save
-      @userShoe = UserShoe.new(user_shoe_params)
-      @userShoe.user = @user
-      @userShoe.shoe = @shoe
-      @userShoe.save!
+      @user_shoe = UserShoe.new(user_shoe_params)
+      @user_shoe.user = @user
+      @user_shoe.shoe = @shoe
+      @user_shoe.save!
       flash[:notice] = 'Successfully Added'
       redirect_to root_path
     else

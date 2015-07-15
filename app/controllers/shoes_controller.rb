@@ -2,9 +2,9 @@ class ShoesController < ApplicationController
   def index
     if !current_user.nil?
       @user = current_user
-      @userShoes = UserShoe.where(user: @user)
+      @user_shoes = UserShoe.where(user: @user)
     else
-      @userShoes = UserShoe.all
+      @user_shoes = UserShoe.all
     end
   end
 
@@ -20,10 +20,9 @@ class ShoesController < ApplicationController
   def create
     @user = current_user
     @shoe = Shoe.new(shoe_params)
-    # @image = params[:user_shoe][:image]
-    @userShoe = UserShoe.new(user: @user, shoe: @shoe)
+    @user_shoe = UserShoe.new(user: @user, shoe: @shoe)
     if @shoe.save && !@user.nil?
-      @userShoe.save
+      @user_shoe.save
       flash[:notice] = 'Successfully Added'
       redirect_to root_path
     else
@@ -37,10 +36,10 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    @userShoe = UserShoe.find(params[:id])
+    @user_shoe = UserShoe.find(params[:id])
     @user = current_user
-    if !current_user.nil? && !@userShoe.nil?
-      @userShoe.destroy
+    if !current_user.nil? && !@user_shoe.nil?
+      @user_shoe.destroy
       flash[:notice] = "Successfully Deleted"
       redirect_to root_path
     else
