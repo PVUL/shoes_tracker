@@ -11,10 +11,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'foundation-rails'
-gem 'carrierwave'
 
 group :doc do
-  gem 'sdoc', '~> 0.4.0'
+  gem 'sdoc', '~> 0.4.0'  
 end
 
 group :development, :test do
