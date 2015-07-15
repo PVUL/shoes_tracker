@@ -9,11 +9,6 @@
     <%= f.text_field :brand %>
     <%= f.label :color %>
     <%= f.text_field :color %>
-
-    <%= fields_for @shoe.user_shoes do |f| %>
-      <%= f.file_field :image %>
-    <%- end -%>
-
     <%= f.submit 'Submit' %>
   <%- end -%>
 </div>
