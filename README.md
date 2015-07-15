@@ -13,9 +13,7 @@ so that it can give you statistics on your shoe wearing habits and preferences.
 
 <a href="http://shoegame.herokuapp.com" target="_blank">shoegame.herokuapp.com</a>
 
-v0.1.2
-<br>
-7/15/15
+Version 0.1.2 *7/15/15*
 
 1. User can check-in their shoes
 2. Calendar view in dash
