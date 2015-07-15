@@ -18,9 +18,11 @@ class ShoesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @shoe = Shoe.new(shoe_params)
-    if @shoe.save && !current_user.nil?
-      @userShoe = UserShoe.new(user: current_user, shoe: @shoe)
+    # @image = params[:user_shoe][:image]
+    @userShoe = UserShoe.new(user: @user, shoe: @shoe)
+    if @shoe.save && !@user.nil?
       @userShoe.save
       flash[:notice] = 'Successfully Added'
       redirect_to root_path

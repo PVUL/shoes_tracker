@@ -12,6 +12,11 @@
 !/log/.keep
 /tmp
 
+# Ignore Coveralls code coverage
 /coverage
 
-.env
+# Ignore uploaded files in test/development
+/public/uploads
+
+# Ignore environment credentials
+/.env
