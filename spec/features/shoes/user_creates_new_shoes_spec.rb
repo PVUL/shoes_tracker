@@ -51,7 +51,7 @@ feature 'user creates new shoes', %{
         File.absolute_path('./spec/support/upload/image_upload.jpg'))
       click_button 'Submit'
 
-      page.should have_selector("img[src$='image_upload.jpg']")
+      expect(page).to have_selector("img[src$='image_upload.jpg']")
       expect(page).to have_content('Successfully Added')
       expect(page).to have_content('Nike')
       expect(page).to have_content('Air Max 90')

@@ -15,7 +15,7 @@ class UserShoesController < ApplicationController
     @image = params[:user_shoe][:image] if !params[:user_shoe].nil?
     @user_shoe = UserShoe.new(user: @user, shoe: @shoe, image: @image)
     if @shoe.save
-      @user_shoe.save!
+      @user_shoe.save
       flash[:notice] = 'Successfully Added'
       redirect_to root_path
     else

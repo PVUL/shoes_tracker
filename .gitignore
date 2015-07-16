@@ -18,5 +18,5 @@
 # Ignore uploaded files in test/development
 /public/uploads
 
-# Ignore environment credentials
+# Ignore environment variables
 /.env
