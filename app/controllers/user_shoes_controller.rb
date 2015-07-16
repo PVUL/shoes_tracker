@@ -12,7 +12,7 @@ class UserShoesController < ApplicationController
   def create
     @user = current_user
     @shoe = Shoe.new(shoe_params)
-    @image = params[:user_shoe][:image] if !params[:user_shoe].nil?
+    @image = params[:user_shoe][:image] unless params[:user_shoe].nil?
     @user_shoe = UserShoe.new(user: @user, shoe: @shoe, image: @image)
     if @shoe.save
       @user_shoe.save
