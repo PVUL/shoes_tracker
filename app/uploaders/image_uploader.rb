@@ -2,6 +2,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Storage configuration within the uploader supercedes the global CarrierWave
   # config, so be sure that your uploader does not contain `storage :file`, or
   # AWS will not be used.
+  include CarrierWave::RMagick
+
   if Rails.env.production? # || Rails.env.development?
     storage :fog
   else
@@ -10,6 +12,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  version :thumb do
+    process resize_to_fill: [200, 200]
   end
 
   # You can find full list of custom headers in AWS SDK documentation on
