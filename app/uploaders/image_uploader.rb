@@ -2,17 +2,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Storage configuration within the uploader supercedes the global CarrierWave
   # config, so be sure that your uploader does not contain `storage :file`, or
   # AWS will not be used.
-  if Rails.env.production? || Rails.env.development?
+  if Rails.env.production? # || Rails.env.development?
     storage :fog
   else
     storage :file
   end
-
-  # if Rails.env.production? || Rails.env.development?
-  #   storage :fog
-  # else
-  #   storage :file
-  # end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
