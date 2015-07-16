@@ -14,6 +14,7 @@ feature 'user creates new shoes', %{
   # [x] Upon successfully creating new shoes, I am redirected back to the index
   #     of my shoes.
   # [x] I must be logged in to create new shoes.
+  # [x] User can optionally upload an image of their shoes.
 
   let!(:user) { User.create(email: "dev@web.com", password: "12345678") }
 
@@ -26,7 +27,7 @@ feature 'user creates new shoes', %{
     end
 
     scenario 'specify required information' do
-      visit new_shoe_path
+      visit new_user_shoe_path
 
       fill_in 'Model', with: 'Air Max 90'
       fill_in 'Brand', with: 'Nike'
@@ -40,13 +41,29 @@ feature 'user creates new shoes', %{
       expect(page).to have_content('Orange')
     end
 
+    scenario 'specify required information and upload an image' do
+      visit new_user_shoe_path
+
+      fill_in 'Model', with: 'Air Max 90'
+      fill_in 'Brand', with: 'Nike'
+      fill_in 'Color', with: 'Orange'
+      attach_file('user_shoe[image]',
+        File.absolute_path('./spec/support/upload/image_upload.jpg'))
+      click_button 'Submit'
+
+      page.should have_selector("img[src$='image_upload.jpg']")
+      expect(page).to have_content('Successfully Added')
+      expect(page).to have_content('Nike')
+      expect(page).to have_content('Air Max 90')
+      expect(page).to have_content('Orange')
+    end
+
     scenario 'specify required information with invalid information' do
-      visit new_shoe_path
+      visit new_user_shoe_path
 
       fill_in 'Model', with: ''
       fill_in 'Brand', with: ''
       fill_in 'Color', with: ''
-
       click_button 'Submit'
 
       expect(page).to have_content("Brand can't be blank")
@@ -57,7 +74,7 @@ feature 'user creates new shoes', %{
 
   context 'user is not signed in' do
     scenario 'attempts to add new shoes' do
-      visit new_shoe_path
+      visit new_user_shoe_path
       expect(page).to have_content("Must be signed in to add shoes")
     end
   end
