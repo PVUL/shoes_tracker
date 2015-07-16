@@ -39,12 +39,12 @@ feature 'user sees all shoes', %{
   context 'user is not signed in' do
     scenario 'visits root index page' do
       visit root_path
-      expect(page).to have_content(shoe.brand)
-      expect(page).to have_content(shoe.model)
-      expect(page).to have_content(shoe.color)
-      expect(page).to have_content(shoe2.brand)
-      expect(page).to have_content(shoe2.model)
-      expect(page).to have_content(shoe2.color)
+      expect(page).to_not have_content(shoe.brand)
+      expect(page).to_not have_content(shoe.model)
+      expect(page).to_not have_content(shoe.color)
+      expect(page).to_not have_content(shoe2.brand)
+      expect(page).to_not have_content(shoe2.model)
+      expect(page).to_not have_content(shoe2.color)
     end
   end
 end

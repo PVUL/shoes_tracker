@@ -1,36 +1,36 @@
 <%- if !current_user.nil? -%>
   <h2>My Shoes</h2>
   <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
-<%- else -%>
-  <h2>All Shoes</h2>
-<%- end -%>
 
-<%- if !@user_shoes.empty? -%>
-  <table class="small-10">
-    <tr>
-      <th>Image</th>
-      <th>Model</th>
-      <th>Brand</th>
-      <th>Color</th>
-      <th>Total Check-ins</th>
-      <th>Last Check-in</th>
-    </tr>
-    <%- @user_shoes.each do |user_shoe| -%>
+  <%- if !@user_shoes.empty? -%>
+    <table class="small-10">
       <tr>
-        <td><%= image_tag(user_shoe.image_url) if user_shoe.image? %></td>
-        <td><%= user_shoe.shoe.model %></td>
-        <td><%= user_shoe.shoe.brand %></td>
-        <td><%= user_shoe.shoe.color %></td>
-        <td><%= user_shoe.check_ins.count %></td>
-        <td><%= user_shoe.check_ins.pluck(:date).last %></td>
-        <td><%= link_to 'check in', shoe_check_ins_path(user_shoe), method: :post %></td>
-        <td><%= link_to 'delete', shoe_path(user_shoe), method: :delete %></td>
+        <th>Image</th>
+        <th>Model</th>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>Total Check-ins</th>
+        <th>Last Check-in</th>
       </tr>
-    <%- end -%>
-  </table>
+      <%- @user_shoes.each do |user_shoe| -%>
+        <tr>
+          <td><%= image_tag(user_shoe.image_url) if user_shoe.image? %></td>
+          <td><%= user_shoe.shoe.model %></td>
+          <td><%= user_shoe.shoe.brand %></td>
+          <td><%= user_shoe.shoe.color %></td>
+          <td><%= user_shoe.check_ins.count %></td>
+          <td><%= user_shoe.check_ins.pluck(:date).last %></td>
+          <td><%= link_to 'check in', shoe_check_ins_path(user_shoe), method: :post %></td>
+          <td><%= link_to 'delete', shoe_path(user_shoe), method: :delete %></td>
+        </tr>
+      <%- end -%>
+    </table>
 
-  <%= calendar do |date| %>
-    <%= date.day %>
+    <%= calendar do |date| %>
+      <%= date.day %>
+    <%- end -%>
   <%- end -%>
 
+<%- else -%>
+  <h2>Welcome to Shoe Tracker</h2>
 <%- end -%>
