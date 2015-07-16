@@ -14,7 +14,7 @@
       </tr>
       <%- @user_shoes.each do |user_shoe| -%>
         <tr>
-          <td><%= image_tag(user_shoe.image_url) if user_shoe.image? %></td>
+          <td><%= image_tag(user_shoe.image_url(:thumb)) if user_shoe.image? %></td>
           <td><%= user_shoe.shoe.model %></td>
           <td><%= user_shoe.shoe.brand %></td>
           <td><%= user_shoe.shoe.color %></td>
