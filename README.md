@@ -13,9 +13,13 @@ so that it can give you statistics on your shoe wearing habits and preferences.
 
 <a href="http://shoegame.herokuapp.com" target="_blank">shoegame.herokuapp.com</a>
 
+Version 0.1.3 (7/16/15)
+- Photo uploads resize to 200x200
+- AWS integration
+
 Version 0.1.2 (7/15/15)
 
-1. User can check-in their shoes
-2. Calendar view in dash
-3. Test Badges in readme
-4. Photo uploads
+- User can check-in their shoes
+- Calendar view in dash
+- Test Badges in readme
+- Photo uploads
