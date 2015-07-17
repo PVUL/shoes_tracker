@@ -16,11 +16,15 @@
 
  */
 
- .off-canvas-wrap, .inner-wrap {
-       min-height: 100%;
-   }
+.off-canvas-wrap, .inner-wrap{
+  min-height: 100%;
+}
 
-   .off-canvas-wrap{
-   height: 100%;
-   overflow-y: auto;
-   }
+.off-canvas-wrap{
+  height: 100%;
+  overflow-y: auto;
+}
+
+table tbody tr td, table tr td{
+  line-height: 13rem;
+}

@@ -4,6 +4,7 @@
   <title>Shoe Game</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="responsive-tables.css">
 </head>
 <body>
 
@@ -14,14 +15,14 @@
         <section class="main-section">
           <div class="row fullWidth">
             <div class="small-12 small-centered text-center">
-              <%- flash.each do |key, value| -%>
-                <div class="flash flash-<%= key %>">
-                  <%= value %>
-                </div>
-              <%- end -%>
-
-              <%= yield %>
-
+              <div class="column">
+                  <%- flash.each do |key, value| -%>
+                    <div class="flash flash-<%= key %>">
+                      <%= value %>
+                    </div>
+                  <%- end -%>
+                  <%= yield %>
+              </div>
             </div>
           </div>
         </section>
@@ -32,6 +33,7 @@
     </div>
 
   <%= javascript_include_tag 'application' %>
+  <script src="responsive-tables.js"</script>
   <%= yield :extra_footer %>
 </body>
 </html>

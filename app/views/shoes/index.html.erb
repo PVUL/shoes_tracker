@@ -3,28 +3,30 @@
   <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
 
   <%- if !@user_shoes.empty? -%>
-    <table class="small-10">
-      <tr>
-        <th>Image</th>
-        <th>Model</th>
-        <th>Brand</th>
-        <th>Color</th>
-        <th>Total Check-ins</th>
-        <th>Last Check-in</th>
-      </tr>
-      <%- @user_shoes.each do |user_shoe| -%>
+    <div class="column">
+      <table class="responsive">
         <tr>
-          <td><%= image_tag(user_shoe.image_url(:thumb)) if user_shoe.image? %></td>
-          <td><%= user_shoe.shoe.model %></td>
-          <td><%= user_shoe.shoe.brand %></td>
-          <td><%= user_shoe.shoe.color %></td>
-          <td><%= user_shoe.check_ins.count %></td>
-          <td><%= user_shoe.check_ins.pluck(:date).last %></td>
-          <td><%= link_to 'check in', shoe_check_ins_path(user_shoe), method: :post %></td>
-          <td><%= link_to 'delete', shoe_path(user_shoe), method: :delete %></td>
+          <th>Image</th>
+          <th>Model</th>
+          <th>Brand</th>
+          <th>Color</th>
+          <th>Total Check-ins</th>
+          <th>Last Check-in</th>
         </tr>
-      <%- end -%>
-    </table>
+        <%- @user_shoes.each do |user_shoe| -%>
+          <tr id="shoe row">
+            <td><%= image_tag(user_shoe.image_url(:thumb)) if user_shoe.image? %></td>
+            <td><%= user_shoe.shoe.model %></td>
+            <td><%= user_shoe.shoe.brand %></td>
+            <td><%= user_shoe.shoe.color %></td>
+            <td><%= user_shoe.check_ins.count %></td>
+            <td><%= user_shoe.check_ins.pluck(:date).last %></td>
+            <td><%= link_to 'check in', shoe_check_ins_path(user_shoe), method: :post %></td>
+            <td><%= link_to 'delete', shoe_path(user_shoe), method: :delete %></td>
+          </tr>
+        <%- end -%>
+      </table>
+    </div>
 
     <!-- <%= calendar do |date| %>
       <%= date.day %>
