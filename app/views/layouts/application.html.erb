@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shoes</title>
+  <title>Shoe Game</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Shoes</a></h1>
-      </li>
-    </ul>
+    <div class="off-canvas-wrap fixed" data-offcanvas>
+      <div class="inner-wrap">
+        <%= render "layouts/header" %>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to current_user.email, root_path %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+        <section class="main-section">
+          <div class="row fullWidth">
+            <div class="small-12 small-centered text-center">
+              <%- flash.each do |key, value| -%>
+                <div class="flash flash-<%= key %>">
+                  <%= value %>
+                </div>
+              <%- end -%>
 
-  <div class="column">
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
+              <%= yield %>
+
+            </div>
+          </div>
+        </section>
+
+      <a class="exit-off-canvas"></a>
+
       </div>
-    <%- end -%>
+    </div>
 
-    <%= yield %>
-
-    <%= javascript_include_tag 'application' %>
-    <%= yield :extra_footer %>
-  </div>
-
+  <%= javascript_include_tag 'application' %>
+  <%= yield :extra_footer %>
 </body>
 </html>
