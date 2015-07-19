@@ -8,29 +8,6 @@ class ShoesController < ApplicationController
     end
   end
 
-  def new
-    if !current_user.nil?
-      @shoe = Shoe.new
-    else
-      flash[:notice] = 'Must be signed in to add shoes'
-      redirect_to root_path
-    end
-  end
-
-  def create
-    @user = current_user
-    @shoe = Shoe.new(shoe_params)
-    @user_shoe = UserShoe.new(user: @user, shoe: @shoe)
-    if @shoe.save && !@user.nil?
-      @user_shoe.save
-      flash[:notice] = 'Successfully Added'
-      redirect_to root_path
-    else
-      flash[:notice] = @shoe.errors.full_messages.join('. ')
-      render :new
-    end
-  end
-
   def show
     @shoe = Shoe.find(params[:id])
   end
