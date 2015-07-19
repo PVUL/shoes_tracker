@@ -1,0 +1,16 @@
+#notice_wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(136, 216, 211, 1);
+  .alert, .notice {
+    padding: .9rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+}

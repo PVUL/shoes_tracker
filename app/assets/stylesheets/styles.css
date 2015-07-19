@@ -1,14 +1,10 @@
-
-
-table tbody tr td, table tr td{
-  line-height: 13rem;
+.inner-wrap {
+  overflow: auto;
 }
-
 
 .off-canvas-fixed {
     -webkit-transition: -webkit-transform 500ms ease;
     transition: transform 500ms ease;
-    height:100%;
 }
 .move-right > .off-canvas-fixed {
     -webkit-transform: translate3d(15.625rem, 0, 0);
