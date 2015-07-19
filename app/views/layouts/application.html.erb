@@ -4,36 +4,115 @@
   <title>Shoe Game</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="responsive-tables.css">
 </head>
 <body>
 
-    <div class="off-canvas-wrap fixed" data-offcanvas>
-      <div class="inner-wrap">
-        <%= render "layouts/header" %>
 
-        <section class="main-section">
-          <div class="row fullWidth">
-            <div class="small-12 small-centered text-center">
-              <div class="column">
-                  <%- flash.each do |key, value| -%>
-                    <div class="flash flash-<%= key %>">
-                      <%= value %>
-                    </div>
-                  <%- end -%>
-                  <%= yield %>
-              </div>
-            </div>
+
+
+  <!-- Top Bar Nav ------------------------------------------------------------------------------------------------------------------>
+  <section class="navigation-section fixed ">
+      <div class="row show-for-large-up">
+          <div class="large-12 columns">
+              <nav class="top-bar" data-topbar>
+                  <ul class="title-area">
+                      <li class="name">
+                           <h1></h1>
+
+                      </li>
+                  </ul>
+                  <section class="top-bar-section">
+                      <ul class="left">
+                          <li><%= link_to 'Shoe Game', root_path %></a>
+                          </li>
+                      </ul>
+                      <ul class="right">
+                        <%- if current_user -%>
+                          <li><%= link_to current_user.email, root_path %></li>
+                          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                        <%- else -%>
+                          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                          <li><%= link_to 'Sign In', new_user_session_path %></li>
+                        <%- end -%>
+                      </ul>
+                  </section>
+              </nav>
           </div>
-        </section>
+      </div>
+  </section>
+  </div>
+  
+  <!-- Off Canvas Nav ----------------------------------------------------------------------------------------------------->
+  <div class="off-canvas-wrap" data-offcanvas>
+      <div class="fixed off-canvas-fixed hide-for-large-up"> <a class="exit-off-canvas"></a>
 
-      <a class="exit-off-canvas"></a>
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="show-for-portrait middle tab-bar-section">
+            <h1 class="title">Shoe Game</h1>
+          </section>
+        </nav>
+
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+
+            <li><label>Welcome to Shoe Game</label></li>
+
+            <%- if current_user -%>
+              <li><%= link_to current_user.email, root_path %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+              <li><a href='#'>test</a></li>
+
+            <%- else -%>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <%- end -%>
+
+          </ul>
+        </aside>
 
       </div>
-    </div>
+      <div class="inner-wrap"> <a class="exit-off-canvas"></a>
+
+          <!-- Start Content --------------------------------------------------------------------------------------------------------------->
+          <section class="main-section">
+              <div class="row">
+                  <div class="large-12 columns">
+
+                    <%= yield %>
+
+                  </div>
+              </div>
+
+          </section>
+          <!-- Ending Off Canvas --------------------------------------------------------------------->
+      </div>
+  </div>
 
   <%= javascript_include_tag 'application' %>
-  <script src="responsive-tables.js"</script>
   <%= yield :extra_footer %>
 </body>
 </html>
