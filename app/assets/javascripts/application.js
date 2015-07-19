@@ -16,3 +16,6 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+$('a.left-off-canvas-toggle').on('click',function(){
+  
+});
