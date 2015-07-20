@@ -1,9 +1,11 @@
 <%- if !current_user.nil? -%>
-  <h2>My Shoes</h2>
-  <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
+  <div class='text-center'>
+    <h2>My Shoes</h2>
+    <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
+  </div>
 
   <%- if !@user_shoes.empty? -%>
-    <div class="column">
+    <div class="small-12 small-centered columns">
       <table>
         <tr>
           <th class="small-2">Image</th>
