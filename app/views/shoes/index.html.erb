@@ -1,29 +1,28 @@
 <%- if !current_user.nil? -%>
   <div class='text-center'>
     <h2>My Shoes</h2>
-    <%= link_to 'Add New Shoes', new_user_shoe_path %><br>
+    <%= link_to '<button>Add New Shoes</button>'.html_safe, new_user_shoe_path %><br>
   </div>
 
   <%- if !@user_shoes.empty? -%>
     <div class="small-12 small-centered columns">
       <table>
         <tr>
-          <th class="small-2">Image</th>
+          <th class="small-4">Image</th>
           <th class="small-1">Total Check-ins</th>
           <th class="small-1">Last Check-in</th>
-          <th></th>
-          <th></th>
+
         </tr>
         <%- @user_shoes.each do |user_shoe| -%>
           <tr id="shoe row">
-            <td><%= image_tag(user_shoe.image_url(:small)) if user_shoe.image? %><br>
+            <td><%= image_tag(user_shoe.image_url(:small)) if user_shoe.image? %>
+            <%= link_to '<button>check in</button>'.html_safe, shoe_check_ins_path(user_shoe), method: :post %>
+            <%= link_to '<button>delete</button>'.html_safe, shoe_path(user_shoe), method: :delete %><br>
             <%= user_shoe.shoe.model %>
             <%= user_shoe.shoe.brand %>
             <%= user_shoe.shoe.color %></td>
             <td><%= user_shoe.check_ins.count %></td>
             <td><%= user_shoe.check_ins.pluck(:date).last %></td>
-            <td><%= link_to 'check in', shoe_check_ins_path(user_shoe), method: :post %></td>
-            <td><%= link_to 'delete', shoe_path(user_shoe), method: :delete %></td>
           </tr>
         <%- end -%>
       </table>
