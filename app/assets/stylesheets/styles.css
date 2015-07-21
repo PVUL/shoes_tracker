@@ -12,8 +12,6 @@
   border-top-width: 0;
 }
 
-
-
 .inner-wrap {
   overflow: auto;
 }
@@ -61,13 +59,4 @@
 .full-width-extend {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.dashboard {
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  background: $white;
-  margin: 0;
-  min-height: 465px;
-  border-bottom: 15px solid black;
 }
