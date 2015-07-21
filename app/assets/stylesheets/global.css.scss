@@ -73,21 +73,21 @@ header {
 	padding: 1.75rem 0;
 	border-bottom: 7px solid $green;
 	.header_inner {
-		width: 90%;
 		margin: 0 auto;
+		width: 90%;
 		#logo {
 			display: inline-block;
-			width: 10rem;
 			float: left;
+			width: 10rem;
 		}
 		nav {
 			float: right;
 			a {
-				text-decoration: none;
 				color: white;
 				font-size: 1.1rem;
 				line-height: 1.5;
 				margin-left: 1rem;
+				text-decoration: none;
 				&:hover {
 					color: $green;
 				}
@@ -104,8 +104,8 @@ footer {
 	text-align: center;
 	@include bold_font;
 	p {
+		font-size: 0.85rem;
 		margin: 0;
-		font-size: .85rem;
 	}
 }
 
@@ -113,7 +113,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 	width: 100%;
 	margin-bottom: 1rem;
 	border: 1px solid $light_gray;
-	border-radius: .4rem;
+	border-radius: 0.4rem;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -121,5 +121,5 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 textarea {
-	min-height: 200px;
+  min-height: 200px;
 }
