@@ -4,34 +4,61 @@
     <%= link_to '<button>Add New Shoes</button>'.html_safe, new_user_shoe_path %><br>
   </div>
 
-  <%- if !@user_shoes.empty? -%>
-    <div class="small-12 small-centered columns">
-      <table>
-        <tr>
-          <th class="small-4">Image</th>
-          <th class="small-1">Total Check-ins</th>
-          <th class="small-1">Last Check-in</th>
+  <div class="row show-for-large-up">
+    <%- if !@user_shoes.empty? -%>
+      <div class="small-12 small-centered columns">
+        <table>
+          <tr>
+            <th class="small-4">Image</th>
+            <th class="small-1">Total Check-ins</th>
+            <th class="small-1">Last Check-in</th>
 
-        </tr>
-        <%- @user_shoes.each do |user_shoe| -%>
-          <tr id="shoe row">
-            <td><%= image_tag(user_shoe.image_url(:small)) if user_shoe.image? %>
-            <%= link_to '<button>check in</button>'.html_safe, shoe_check_ins_path(user_shoe), method: :post %>
-            <%= link_to '<button>delete</button>'.html_safe, shoe_path(user_shoe), method: :delete %><br>
-            <%= user_shoe.shoe.model %>
-            <%= user_shoe.shoe.brand %>
-            <%= user_shoe.shoe.color %></td>
-            <td><%= user_shoe.check_ins.count %></td>
-            <td><%= user_shoe.check_ins.pluck(:date).last %></td>
           </tr>
-        <%- end -%>
-      </table>
+          <%- @user_shoes.each do |user_shoe| -%>
+            <tr id="shoe row">
+              <td><%= image_tag(user_shoe.image_url(:small)) if user_shoe.image? %>
+              <%= link_to '<button>check in</button>'.html_safe, shoe_check_ins_path(user_shoe), method: :post %>
+              <%= link_to '<button>delete</button>'.html_safe, shoe_path(user_shoe), method: :delete %><br>
+              <%= user_shoe.shoe.model %>
+              <%= user_shoe.shoe.brand %>
+              <%= user_shoe.shoe.color %></td>
+              <td><%= user_shoe.check_ins.count %></td>
+              <td><%= user_shoe.check_ins.pluck(:date).last %></td>
+            </tr>
+          <%- end -%>
+        </table>
+      </div>
+    <%- end -%>
+  </div>
+
+  <div id="row-margin-zero" class="row hide-for-large-up">
+    <div id="column-padding-zero" class="small-6 medium-6 columns">
+      <div id="panel-clean" class="panel">
+        <h1>Shoe Count</h1>
+        <p><%= @user_shoes.all.size %></p>
+      </div>
+    </div>
+    <div id="column-padding-zero" class="small-6 medium-6 columns">
+      <div id="panel-clean" class="panel">
+        <h1>Total check-ins this week</h1>
+        <p>###</p>
+      </div>
+    </div>
+    <div id="column-padding-zero" class="small-6 medium-6 columns">
+      <div id="panel-clean" class="panel">
+        <h1>Shoe of the Week</h1>
+        <p>###</p>
+      </div>
     </div>
 
-    <!-- <%= calendar do |date| %>
-      <%= date.day %>
-    <%- end -%>
-  <%- end -%> -->
+    <div id="column-padding-zero" class="small-6 medium-6 columns">
+      <div id="panel-clean" class="panel">
+        <h1>Last check-in</h1>
+        <p>###</p>
+      </div>
+    </div>
+
+  </div>
 
 <%- else -%>
   <h2>Welcome to Shoe Tracker</h2>

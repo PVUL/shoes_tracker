@@ -15,11 +15,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fill: [200, 200]
+    process resize_to_fill: [250, 250]
   end
 
   version :small do
-    process resize_to_fill: [50, 50]
+    process resize_to_fill: [150, 150]
+  end
+
+  version :list do
+    process resize_to_fill: [250, 100]
   end
 
   # You can find full list of custom headers in AWS SDK documentation on
