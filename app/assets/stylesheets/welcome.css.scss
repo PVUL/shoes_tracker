@@ -1,26 +1,26 @@
 #banner {
-	background-image: url(image_path('welcome.jpg'));
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-	width: 100%;
-	min-height: 500px;
-	display: table;
-	.banner_content {
+  background-image: url(image_path("welcome.jpg"));
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: table;
+  min-height: 500px;
+  width: 100%;
+  .banner_content {
 		display: table-cell;
-		vertical-align: middle;
 		text-align: center;
+		vertical-align: middle;
 		h1 {
-			font-family: 'Amaranth', sans-serif;
-			font-style: italic;
 			color: white;
+			font-family: 'Amaranth', sans-serif;
 			font-size: 3rem;
+			font-style: italic;
 			margin: 0;
 		}
 		p {
-			font-size: 1.2rem;
-			margin: 0 0 2.5rem 0;
 			color: rgba(250, 250, 250, 0.5);
+			font-size: 1.2rem;
+			margin: 0 0 2.5rem;
 		}
 	}
 }
