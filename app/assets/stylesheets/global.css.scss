@@ -17,7 +17,7 @@ $green: #33CD99;
 
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
-  padding-top: 0rem;
+  padding-top: 0;
 }
 
 .wrapper {
@@ -68,8 +68,8 @@ a {
 header {
   background: $dark_gray;
   border-bottom: 7px solid $green;
-  position: fixed;
   padding: 1.75rem 0;
+  position: fixed;
   top: 0;
   width: 100%;
   .header_inner {
