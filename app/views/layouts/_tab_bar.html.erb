@@ -1,0 +1,23 @@
+<nav class="tab-bar">
+  <section class="left-small">
+    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+  </section>
+  <section class="show-for-portrait middle tab-bar-section">
+    <h1 class="title">Shoe Game</h1>
+  </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+  <ul class="off-canvas-list">
+    <li>
+      <label>Welcome to Shoe Game</label>
+    </li>
+
+    <%- if current_user -%>
+      <li><%= link_to current_user.email, root_path %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <%- else -%>
+      <li><a href="#">Sign in to see the goodies</a></li>
+    <%- end -%>
+  </ul>
+</aside>

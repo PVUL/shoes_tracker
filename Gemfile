@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'foundation-rails'
+gem 'normalize-rails'
 gem 'carrierwave'
 gem 'rmagick'
 

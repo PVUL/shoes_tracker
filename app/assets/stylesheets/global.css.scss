@@ -1,0 +1,125 @@
+$dark_gray: #2B2E2E;
+$light_gray: #C0C1C1;
+$green: #33CD99;
+
+@import url(http://fonts.googleapis.com/css?family=Amaranth:700italic);
+
+@mixin bold_font {
+  font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  padding-top: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.wrapper_with_padding {
+  margin: 0 auto;
+  padding: 3.5rem 0;
+  width: 80%;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+button, .button {
+  background: $green;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  padding: 1rem 3.5rem;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.button {
+  color: white;
+  margin: 2rem 0;
+}
+
+a {
+  color: $green;
+  text-decoration: none;
+  &:hover {
+    color: $dark_gray;
+  }
+}
+
+header {
+  background: $dark_gray;
+  border-bottom: 7px solid $green;
+  padding: 1.75rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  .header_inner {
+    margin: 0 auto;
+    width: 90%;
+    #logo {
+      display: inline-block;
+      float: left;
+      width: 10rem;
+    }
+    nav {
+      float: right;
+      a {
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-left: 1rem;
+        text-decoration: none;
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: $dark_gray;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  width: 100%;
+  @include bold_font;
+  p {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  border: 1px solid $light_gray;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  height: 40px;
+}
+
+textarea {
+  min-height: 200px;
+}

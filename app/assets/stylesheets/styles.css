@@ -1,7 +1,6 @@
 .inner-wrap {
   overflow: auto;
 }
-
 .off-canvas-fixed {
     -webkit-transition: -webkit-transform 500ms ease;
     transition: transform 500ms ease;
@@ -23,7 +22,7 @@
 .tab-bar {
     width:100%;
 }
-@media only screen and (orientation:landscape) and (max-width: 64em){
+@media only screen and (orientation:landscape) and (max-width: 64.0625em){
     .main-section {
         padding:0 0 0 2.8125rem;
     }
@@ -36,4 +35,12 @@
         border:none;
         box-shadow:none;
     }
+}
+.row {
+  max-width:100%;
+}
+
+.full-width-extend {
+  padding-left: 0px;
+  padding-right: 0px;
 }

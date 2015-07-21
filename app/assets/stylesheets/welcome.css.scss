@@ -1,0 +1,26 @@
+#banner {
+  background-image: url(image_path("welcome.jpg"));
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: table;
+  min-height: 500px;
+  width: 100%;
+  .banner_content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    h1 {
+      color: white;
+      font-family: 'Amaranth', sans-serif;
+      font-size: 3rem;
+      font-style: italic;
+      margin: 0;
+    }
+    p {
+      color: rgba(250, 250, 250, 0.5);
+      font-size: 1.2rem;
+      margin: 0 0 2.5rem;
+    }
+  }
+}
