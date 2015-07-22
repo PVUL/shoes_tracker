@@ -35,29 +35,28 @@
     <div id="column-padding-zero" class="small-6 medium-6 columns">
       <div id="panel-clean" class="panel">
         <h1>Shoe Count</h1>
-        <p><%= @user_shoes.all.size %></p>
+        <p><%= @user_shoes.all.count %></p>
       </div>
     </div>
     <div id="column-padding-zero" class="small-6 medium-6 columns">
       <div id="panel-clean" class="panel">
         <h1>Total check-ins this week</h1>
-        <p><%= @weekly_check_ins.size %></p>
+          <p><%= @weekly_check_ins.count if !@check_ins.empty? %></p>
       </div>
     </div>
     <div id="column-padding-zero" class="small-6 medium-6 columns">
       <div id="panel-clean" class="panel">
         <h1>Shoe of the Week</h1>
-        <p><%= image_tag(@shoe_of_week.image_url(:small)) if @shoe_of_week.image? %></p>
+        <p><%= image_tag(@shoe_of_week.image_url(:small)) if !@shoe_of_week.nil? %></p>
       </div>
     </div>
 
     <div id="column-padding-zero" class="small-6 medium-6 columns">
       <div id="panel-clean" class="panel">
         <h1>Last check-in</h1>
-        <p><%= @time_since_last_check_in %></p>
+          <p><%= @time_since_last_check_in if !@check_ins.empty? %></p>
       </div>
     </div>
-
   </div>
 
 <%- else -%>
