@@ -3,6 +3,8 @@ class ShoesController < ApplicationController
     if !current_user.nil?
       @user = current_user
       @user_shoes = UserShoe.where(user: @user)
+      @weekly_check_ins = CheckIn.where(created_at: Date.today.at_beginning_of_week..Time.now)
+      @check_ins = CheckIn.all
     else
       @user_shoes = UserShoe.all
     end
