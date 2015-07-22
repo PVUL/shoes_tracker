@@ -14,7 +14,7 @@ class ShoesController < ApplicationController
           created_at: Date.today.at_beginning_of_week..Time.now)
         @trending_user_shoe = @weekly_check_ins.group(
           'user_shoe_id').order('count(*) desc').limit(1).pluck(
-          'user_shoe_id').first
+            'user_shoe_id').first
         @shoe_of_week = UserShoe.find(@trending_user_shoe)
       end
     else
