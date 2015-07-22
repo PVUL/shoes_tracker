@@ -12,6 +12,10 @@
   border-top-width: 0;
 }
 
+.max-width {
+  max-width: 100%;
+}
+
 .inner-wrap {
   overflow: auto;
 }
