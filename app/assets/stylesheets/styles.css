@@ -20,7 +20,7 @@
 .off-canvas-fixed {
   -webkit-transition: -webkit-transform 500ms ease;
   height: 45px;
-  transition: transform 500ms, height 0s ease;
+  transition: transform 500ms, height 0s ease 500ms;
 }
 .move-right > .off-canvas-fixed {
   -webkit-transform: translate3d(15.625rem, 0, 0);

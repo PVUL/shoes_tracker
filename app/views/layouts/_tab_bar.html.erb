@@ -1,7 +1,9 @@
 <nav class="tab-bar">
-  <section class="left-small">
-    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-  </section>
+  <%- if !current_user.nil? -%>
+    <section class="left-small">
+      <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+    </section>
+  <%- end -%>
   <section class="show-for-portrait middle tab-bar-section">
     <h1 class="title">Shoe Game</h1>
   </section>
