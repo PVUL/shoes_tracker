@@ -11,37 +11,35 @@
   border-right-width: 0;
   border-top-width: 0;
 }
-
 .max-width {
   max-width: 100%;
 }
-
 .inner-wrap {
   overflow: auto;
 }
 .off-canvas-fixed {
   -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+  height: 100%;
+  transition: transform 500ms, height 0s ease;
 }
 .move-right > .off-canvas-fixed {
   -webkit-transform: translate3d(15.625rem, 0, 0);
-  transform: translate3d(15.625rem, 0, 0);
   height:100%;
+  transform: translate3d(15.625rem, 0, 0);
+  transition: transform 500ms, height 0s ease;
 }
 .left-off-canvas-menu {
   -webkit-transform: none;
-  transform: none;
-  margin-left: -15.625rem;
   height: 100%;
+  margin-left: -15.625rem;
+  transform: none;
 }
 .main-section {
   padding: 45px 0 0;
-
 }
 .top-bar {
   width: 100%;
 }
-
 .tab-bar {
   width:100%;
 }
@@ -50,16 +48,15 @@
     padding:0 0 0 2.8125rem;
   }
   .off-canvas-fixed {
-    width:2.8125rem;
-    height:100%;
     background:#333333;
+    height:100%;
+    width:2.8125rem;
   }
   section.left-small{
     border:none;
     box-shadow:none;
   }
 }
-
 .full-width-extend {
   padding-left: 0px;
   padding-right: 0px;
