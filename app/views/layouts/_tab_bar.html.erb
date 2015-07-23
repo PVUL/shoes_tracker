@@ -21,7 +21,9 @@
 
       <%- if !@user_shoes.nil? -%>
         <%- @user_shoes.each do |user_shoe| -%>
-          <a href="/"><%= image_tag(user_shoe.image_url(:list)) if user_shoe.image? %></a>
+          <%= link_to shoe_path(user_shoe) do %>
+            <%= image_tag(user_shoe.image_url(:list)) %>
+          <%- end -%>
         <%- end -%>
       <%- end -%>
 

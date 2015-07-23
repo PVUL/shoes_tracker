@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  # root 'shoes#index'
   devise_for :users
   get 'welcome/index'
-  resources :shoes, only: [:index, :shoe, :destroy] do
-    resources :check_ins
+  resources :shoes, only: [:index, :shoe, :destroy, :show] do
+    resources :check_ins, only: [:create]
   end
   resources :user_shoes, only: [:new, :create]
 
