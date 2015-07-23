@@ -27,6 +27,11 @@ class ShoesController < ApplicationController
     @user = current_user
     @user_shoes = UserShoe.where(user: @user)
     @user_shoe = UserShoe.find(params[:id])
+
+    respond_to do |format|
+      format.js 
+    end
+
   end
 
   def destroy

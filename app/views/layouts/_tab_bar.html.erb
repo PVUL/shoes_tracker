@@ -21,7 +21,7 @@
 
       <%- if !@user_shoes.nil? -%>
         <%- @user_shoes.each do |user_shoe| -%>
-          <%= link_to shoe_path(user_shoe) do %>
+          <%= link_to shoe_path(user_shoe), remote: true do %>
             <%= image_tag(user_shoe.image_url(:list)) %>
           <%- end -%>
         <%- end -%>
