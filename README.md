@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/PVUL/shoes_tracker/badges/gpa.svg)](https://codeclimate.com/github/PVUL/shoes_tracker)
 [![Coverage Status](https://coveralls.io/repos/PVUL/shoes_tracker/badge.svg?branch=master&service=github)](https://coveralls.io/github/PVUL/shoes_tracker?branch=master)
 [![GitHub version](https://badge.fury.io/gh/pvul%2Fshoes_tracker.svg)](http://badge.fury.io/gh/pvul%2Fshoes_tracker)
-[![Stories in Ready](https://badge.waffle.io/PVUL/shoes_tracker.svg?label=ready&title=Ready)](http://waffle.io/PVUL/shoes_tracker)
+[![Stories in Ready](https://badge.waffle.io/PVUL/shoes_tracker.svg?label=In%20Progress&title=In%20Progress)](http://waffle.io/PVUL/shoes_tracker)
 
 Shoes Tracker
 --
