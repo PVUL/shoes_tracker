@@ -1,0 +1,16 @@
+<div id="test2">
+  <%= link_to 'back to my shoes', root_path -%><br>
+  <%= image_tag(@user_shoe.image_url(:small)) %>
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Brand</th>
+      <th>Color</th>
+    </tr>
+    <tr>
+      <td><%= @user_shoe.shoe.model %></td>
+      <td><%= @user_shoe.shoe.brand %></td>
+      <td><%= @user_shoe.shoe.color %></td>
+    </tr>
+  </table>
+</div>

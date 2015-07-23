@@ -31,42 +31,48 @@
     <%- end -%>
   </div>
 
-  <div id="row-margin-zero" class="row hide-for-large-up">
-    <div id="column-padding-zero" class="small-6 medium-6 columns">
-      <div id="panel-clean" class="panel">
-        <h1>Shoe Count</h1>
-        <p><%= @user_shoes.all.count %></p>
-      </div>
-    </div>
-    <div id="column-padding-zero" class="small-6 medium-6 columns">
-      <div id="panel-clean" class="panel">
-        <h1>Total check-ins this week</h1>
-        <%- if !@check_ins.empty? -%>
-          <p><%= @weekly_check_ins.count %></p>
-        <%- else -%>
-          <p>0</p>
-        <%- end -%>
-      </div>
-    </div>
-    <div id="column-padding-zero" class="small-6 medium-6 columns">
-      <div id="panel-clean" class="panel">
-        <h1>Shoe of the Week</h1>
-        <%- if !@shoe_of_week.nil? -%>
-          <p><%= image_tag(@shoe_of_week.image_url(:small)) %></p>
-        <%- else -%>
-          <p>No check ins this week</p>
-        <%- end -%>
-      </div>
-    </div>
+  <div id="test1">
+    <div id="row-margin-zero" class="row hide-for-large-up">
+      <div id="column-padding-zero" class="small-6 medium-6 columns">
+        <div id="panel-clean" class="panel">
 
-    <div id="column-padding-zero" class="small-6 medium-6 columns">
-      <div id="panel-clean" class="panel">
-        <h1>Last check-in</h1>
-        <%- if !@check_ins.empty? -%>
-          <p><%= @time_since_last_check_in %></p>
-        <%- else -%>
-          <p>No check ins</p>
-        <%- end -%>
+          <h1>Shoe Count</h1>
+          <p>
+            <%= @user_shoes.all.count %>
+          </p>
+
+        </div>
+      </div>
+      <div id="column-padding-zero" class="small-6 medium-6 columns">
+        <div id="panel-clean" class="panel">
+          <h1>Total check-ins this week</h1>
+          <%- if !@check_ins.empty? -%>
+            <p><%= @weekly_check_ins.count %></p>
+          <%- else -%>
+            <p>0</p>
+          <%- end -%>
+        </div>
+      </div>
+      <div id="column-padding-zero" class="small-6 medium-6 columns">
+        <div id="panel-clean" class="panel">
+          <h1>Shoe of the Week</h1>
+          <%- if !@shoe_of_week.nil? -%>
+            <p><%= image_tag(@shoe_of_week.image_url(:small)) %></p>
+          <%- else -%>
+            <p>No check ins this week</p>
+          <%- end -%>
+        </div>
+      </div>
+
+      <div id="column-padding-zero" class="small-6 medium-6 columns">
+        <div id="panel-clean" class="panel">
+          <h1>Last check-in</h1>
+          <%- if !@check_ins.empty? -%>
+            <p><%= @time_since_last_check_in %></p>
+          <%- else -%>
+            <p>No check ins</p>
+          <%- end -%>
+        </div>
       </div>
     </div>
   </div>
