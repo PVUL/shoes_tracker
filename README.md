@@ -13,11 +13,10 @@ so that it can give you statistics on your shoe wearing habits and preferences.
 
 <a href="http://shoegame.herokuapp.com" target="_blank">shoegame.herokuapp.com</a>
 
-Versopm 0.1.4 (7/19/15)
+Version 0.1.5 (7/24/15)
+- Styling
+
+Version 0.1.4 (7/19/15)
 - Responsive layout
 - Side Menu for mobile view
 - Fading notifications
-
-Version 0.1.3 (7/16/15)
-- Photo uploads resize to 200x200
-- AWS integration
