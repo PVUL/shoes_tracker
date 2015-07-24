@@ -1,4 +1,4 @@
-<div id="test2">
+<div id="test2" class="text-center">
   <%= link_to 'back to my shoes', root_path -%><br>
   <%= image_tag(@user_shoe.image_url(:small)) %>
   <table>
@@ -13,4 +13,6 @@
       <td><%= @user_shoe.shoe.color %></td>
     </tr>
   </table>
+  <%= link_to '<button>check in</button>'.html_safe, shoe_check_ins_path(@user_shoe), method: :post %><br>
+  <%= link_to '<button>delete</button>'.html_safe, shoe_path(@user_shoe), method: :delete %>
 </div>
