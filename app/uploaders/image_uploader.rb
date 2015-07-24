@@ -26,6 +26,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [250, 100]
   end
 
+  version :calendar do
+    process resize_to_fill: [50, 50]
+  end
+
   # You can find full list of custom headers in AWS SDK documentation on
   # AWS::S3::S3Object
   # def download_url(filename)

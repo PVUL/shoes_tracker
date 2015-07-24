@@ -1,0 +1,39 @@
+<div>
+  <%- if !@check_ins.empty? -%>
+    <Table class="full-width">
+      <tr>
+        <td>S</td>
+        <td>M</td>
+        <td>T</td>
+        <td>W</td>
+        <td>T</td>
+        <td>F</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <% @last_week_view.each do |day| %>
+          <td>
+            <%#= day %>
+            <% @last_week_check_ins.each do |check_in| %>
+              <% if check_in.date == day %>
+                <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+        <%- end -%>
+      </tr>
+      <tr>
+        <% @this_week_view.each do |day| %>
+          <td>
+            <%#= day %>
+            <% @this_week_check_ins.each do |check_in| %>
+              <% if check_in.date == day %>
+                <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+        <%- end -%>
+      </tr>
+    </table>
+  <%- end -%>
+</div>

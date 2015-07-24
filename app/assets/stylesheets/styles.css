@@ -57,7 +57,10 @@
     box-shadow:none;
   }
 }
-.full-width-extend {
+.zero-padding {
   padding-left: 0px;
   padding-right: 0px;
+}
+.full-width {
+  width: 100%;
 }

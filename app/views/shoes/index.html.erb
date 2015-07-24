@@ -1,7 +1,10 @@
+
+
 <%- if !current_user.nil? -%>
   <div class='text-center'>
     <h2>My Shoes</h2>
     <%= link_to '<button>Add New Shoes</button>'.html_safe, new_user_shoe_path %><br>
+    <%= render 'calendar' %>
   </div>
 
   <div class="row show-for-large-up">
@@ -23,7 +26,7 @@
               <%= user_shoe.shoe.brand %>
               <%= user_shoe.shoe.color %></td>
               <td><%= user_shoe.check_ins.count %></td>
-              <td><%= user_shoe.check_ins.pluck(:date).last %></td>
+              <td><%= user_shoe.check_ins.pluck(:created_at).last %></td>
             </tr>
           <%- end -%>
         </table>
@@ -47,7 +50,7 @@
         <div id="panel-clean" class="panel">
           <h1>Total check-ins this week</h1>
           <%- if !@check_ins.empty? -%>
-            <p><%= @weekly_check_ins.count %></p>
+            <p><%= @this_week_check_ins.count %></p>
           <%- else -%>
             <p>0</p>
           <%- end -%>
