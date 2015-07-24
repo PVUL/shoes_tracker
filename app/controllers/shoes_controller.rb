@@ -7,20 +7,24 @@ class ShoesController < ApplicationController
       @user_shoes = UserShoe.where(user: @user)
       @check_ins = CheckIn.where(user_shoe: @user_shoes)
 
-      @this_week_view = (Date.today.last_week(:sunday)..Date.today
-        .end_of_week(:sunday)).map { |date| date.strftime("%d") }
-      @last_week_view = (Date.today.last_week(:sunday).weeks_ago(1)..Date.today
-        .end_of_week(:sunday).weeks_ago(1)).map { |date| date.strftime("%d") }
+      @today = Date.today
+
+      @this_week = @today.last_week(:sunday)..@today.end_of_week(:sunday)
+      @last_week = @today.last_week(:sunday).weeks_ago(
+        1)..@today.end_of_week(:sunday).weeks_ago(1)
+
+      @this_week_view = @this_week.map { |date| date.strftime("%d") }
+      @last_week_view = @last_week.map { |date| date.strftime("%d") }
 
       if !@check_ins.empty?
         @last_check_in = @check_ins.last.created_at
         @time_since_last_check_in = time_ago_in_words(
           @last_check_in, include_seconds: true).concat(" ago")
         @this_week_check_ins = @check_ins.where(
-          created_at: Date.today.at_beginning_of_week(:sunday)..Time.now)
+          created_at: @today.at_beginning_of_week(:sunday)..Time.now)
         @last_week_check_ins = @check_ins.where(
-          date: Date.today.last_week(:sunday).weeks_ago(1).strftime("%d")..Date
-            .today.end_of_week(:sunday).weeks_ago(1).strftime("%d"))
+          date: @today.last_week(:sunday).weeks_ago(1).strftime(
+            "%d")..@today.end_of_week(:sunday).weeks_ago(1).strftime("%d"))
         @trending_user_shoe = @this_week_check_ins.group(
           'user_shoe_id').order('count(*) desc').limit(1).pluck(
             'user_shoe_id').first
