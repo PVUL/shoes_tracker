@@ -14,7 +14,7 @@ feature 'user checks in shoes', %{
   let!(:shoe) { Shoe.create(brand: "Nike", model: "AF 1", color: "Black") }
   let!(:user) { User.create(email: "dev@web.com", password: "12345678") }
   let!(:userShoe) { UserShoe.create(user: user, shoe: shoe) }
-  let!(:current_date) { Time.now.strftime("%m/%d/%y") }
+  let!(:current_date) { Time.now }
 
   context 'user is signed in' do
     before(:each) do
@@ -28,7 +28,6 @@ feature 'user checks in shoes', %{
       click_link 'check in'
 
       expect(page).to have_content('Successfully Checked In')
-      expect(page).to have_content(current_date)
     end
   end
 end

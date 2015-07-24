@@ -7,8 +7,10 @@ class ShoesController < ApplicationController
       @user_shoes = UserShoe.where(user: @user)
       @check_ins = CheckIn.where(user_shoe: @user_shoes)
 
-      @this_week_view = (Date.today.last_week(:sunday)..Date.today.end_of_week(:sunday)).map{ |date| date.strftime("%d") }
-      @last_week_view = (Date.today.last_week(:sunday).weeks_ago(1)..Date.today.end_of_week(:sunday).weeks_ago(1)).map{ |date| date.strftime("%d") }
+      @this_week_view = (Date.today.last_week(:sunday)..Date.today
+        .end_of_week(:sunday)).map { |date| date.strftime("%d") }
+      @last_week_view = (Date.today.last_week(:sunday).weeks_ago(1)..Date.today
+        .end_of_week(:sunday).weeks_ago(1)).map { |date| date.strftime("%d") }
 
       if !@check_ins.empty?
         @last_check_in = @check_ins.last.created_at
@@ -17,7 +19,8 @@ class ShoesController < ApplicationController
         @this_week_check_ins = @check_ins.where(
           created_at: Date.today.at_beginning_of_week(:sunday)..Time.now)
         @last_week_check_ins = @check_ins.where(
-          date: Date.today.last_week(:sunday).weeks_ago(1).strftime("%d")..Date.today.end_of_week(:sunday).weeks_ago(1).strftime("%d")) 
+          date: Date.today.last_week(:sunday).weeks_ago(1).strftime("%d")..Date
+            .today.end_of_week(:sunday).weeks_ago(1).strftime("%d"))
         @trending_user_shoe = @this_week_check_ins.group(
           'user_shoe_id').order('count(*) desc').limit(1).pluck(
             'user_shoe_id').first
