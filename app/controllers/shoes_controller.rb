@@ -21,7 +21,7 @@ class ShoesController < ApplicationController
           'user_shoe_id').order('count(*) desc').limit(1).pluck(
             'user_shoe_id').first
 
-        @last_check_in = @this_week_check_ins.last.created_at
+        @last_check_in = @check_ins.last.created_at
         @time_since_last_check_in = time_ago_in_words(
           @last_check_in, include_seconds: true).concat(" ago")
 
