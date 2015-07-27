@@ -11,7 +11,7 @@
         <td>S</td>
       </tr>
       <tr>
-        <% @last_week_view.each do |day| %>
+        <% @last_week.each do |day| %>
           <td>
             <%#= day %>
             <% @last_week_check_ins.each do |check_in| %>
@@ -23,7 +23,7 @@
         <%- end -%>
       </tr>
       <tr>
-        <% @this_week_view.each do |day| %>
+        <% @this_week.each do |day| %>
           <td>
             <%#= day %>
             <% @this_week_check_ins.each do |check_in| %>

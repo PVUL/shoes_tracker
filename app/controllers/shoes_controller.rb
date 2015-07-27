@@ -7,29 +7,31 @@ class ShoesController < ApplicationController
       @user_shoes = UserShoe.where(user: @user)
       @check_ins = CheckIn.where(user_shoe: @user_shoes)
 
-      @today = Date.today
+      @sunday = Date.today.beginning_of_week(:sunday)
+      @saturday = Date.today.end_of_week(:sunday)
 
-      @this_week = @today.last_week(:sunday)..@today.end_of_week(:sunday)
-      @last_week = @today.last_week(:sunday).weeks_ago(
-        1)..@today.end_of_week(:sunday).weeks_ago(1)
-
-      @this_week_view = @this_week.map { |date| date.strftime("%d") }
-      @last_week_view = @last_week.map { |date| date.strftime("%d") }
+      @last_week = (@sunday - 7..@saturday - 7).map { |d| d.strftime("%d") }
+      @this_week = (@sunday..@saturday).map { |d| d.strftime("%d") }
 
       if !@check_ins.empty?
-        @last_check_in = @check_ins.last.created_at
-        @time_since_last_check_in = time_ago_in_words(
-          @last_check_in, include_seconds: true).concat(" ago")
-        @this_week_check_ins = @check_ins.where(
-          created_at: @today.at_beginning_of_week(:sunday)..Time.now)
-        @last_week_check_ins = @check_ins.where(
-          date: @today.last_week(:sunday).weeks_ago(1).strftime(
-            "%d")..@today.end_of_week(:sunday).weeks_ago(1).strftime("%d"))
+        @last_week_check_ins = @check_ins.where(date: @last_week)
+        @this_week_check_ins = @check_ins.where(date: @this_week)
+
         @trending_user_shoe = @this_week_check_ins.group(
           'user_shoe_id').order('count(*) desc').limit(1).pluck(
             'user_shoe_id').first
-        @shoe_of_week = UserShoe.find(@trending_user_shoe)
+
+        @last_check_in = @this_week_check_ins.last.created_at
+        @time_since_last_check_in = time_ago_in_words(
+          @last_check_in, include_seconds: true).concat(" ago")
+
+        if !@trending_user_shoe.nil?
+          @shoe_of_week = UserShoe.find(@trending_user_shoe)
+        else
+          @shoe_of_week = nil
+        end
       end
+
     else
       @user_shoes = UserShoe.all
     end

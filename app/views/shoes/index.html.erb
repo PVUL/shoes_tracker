@@ -1,5 +1,3 @@
-
-
 <%- if !current_user.nil? -%>
   <div class='text-center'>
     <h2>My Shoes</h2>
@@ -60,6 +58,7 @@
         <div id="panel-clean" class="panel">
           <h1>Shoe of the Week</h1>
           <%- if !@shoe_of_week.nil? -%>
+
             <p><%= image_tag(@shoe_of_week.image_url(:small)) %></p>
           <%- else -%>
             <p>No check ins this week</p>
