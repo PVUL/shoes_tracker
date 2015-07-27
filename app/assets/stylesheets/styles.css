@@ -1,16 +1,18 @@
 #column-padding-zero {
   padding: 0;
 }
-#row-margin-zero {
-  margin: 0;
-}
 #panel-clean {
-  margin: 0;
+  background: white;
   border-bottom-width: 0;
   border-left-width: 0;
   border-right-width: 0;
   border-top-width: 0;
+  margin: 0;
 }
+#row-margin-zero {
+  margin: 0;
+}
+
 .max-width {
   max-width: 100%;
 }
@@ -63,4 +65,17 @@
 }
 .full-width {
   width: 100%;
+}
+.dashboard h1 {
+  color: #707070;
+  font-size: 1rem;
+  text-align: center;
+}
+.dashboard p {
+  color: #707070;
+  font-size: 4rem;
+  text-align: center;
+}
+.dashboard .wordy p{
+  font-size: 2.5rem;
 }
