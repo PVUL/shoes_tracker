@@ -10,8 +10,8 @@ class ShoesController < ApplicationController
       @sunday = Date.today.beginning_of_week(:sunday)
       @saturday = Date.today.end_of_week(:sunday)
 
-      @last_week = (@sunday-7..@saturday-7).map { |date| date.strftime("%d") }
-      @this_week = (@sunday..@saturday).map { |date| date.strftime("%d") }
+      @last_week = (@sunday - 7..@saturday - 7).map { |d| d.strftime("%d") }
+      @this_week = (@sunday..@saturday).map { |d| d.strftime("%d") }
 
       if !@check_ins.empty?
         @last_week_check_ins = @check_ins.where(date: @last_week)
