@@ -23,7 +23,7 @@
               <%= user_shoe.shoe.model %>
               <%= user_shoe.shoe.brand %>
               <%= user_shoe.shoe.color %></td>
-              <td><%= user_shoe.check_ins.count %></td>
+              <td><%= user_shoe.check_ins.size %></td>
               <td><%= user_shoe.check_ins.pluck(:date).last %></td>
             </tr>
           <%- end -%>
@@ -39,7 +39,7 @@
 
           <div class="dashboard">
             <h1>Shoe Count</h1>
-            <p><%= @user_shoes.all.count %></p>
+            <p><%= @user_shoes.all.size %></p>
           </div>
 
         </div>
@@ -51,7 +51,7 @@
             <h1>Check-ins this week</h1>
             <%- if !@check_ins.empty? -%>
               <p>
-                <%= @this_week_check_ins.count %>
+                <%= @this_week_check_ins.size %>
               </p>
             <%- else -%>
               <p>0</p>
