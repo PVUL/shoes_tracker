@@ -10,20 +10,20 @@ class ShoesController < ApplicationController
       @sunday = Date.today.beginning_of_week(:sunday)
       @saturday = Date.today.end_of_week(:sunday)
 
-      @last_week = (@sunday - 7..@saturday - 7).map { |d| d.strftime("%d") }
-      @this_week = (@sunday..@saturday).map { |d| d.strftime("%d") }
+      @last_week = (@sunday - 7..@saturday - 7).to_a
+      @this_week = (@sunday..@saturday).to_a
 
       if !@check_ins.empty?
         @last_week_check_ins = @check_ins.where(date: @last_week)
         @this_week_check_ins = @check_ins.where(date: @this_week)
 
-        @trending_user_shoe = @this_week_check_ins.group(
-          'user_shoe_id').order('count(*) desc').limit(1).pluck(
-            'user_shoe_id').first
-
         @last_check_in = @check_ins.last.created_at
         @time_since_last_check_in = time_ago_in_words(
           @last_check_in, include_seconds: true).concat(" ago")
+
+        @trending_user_shoe = @this_week_check_ins.group(
+          'user_shoe_id').order('count(*) desc').limit(1).pluck(
+            'user_shoe_id').first
 
         if !@trending_user_shoe.nil?
           @shoe_of_week = UserShoe.find(@trending_user_shoe)
@@ -41,6 +41,15 @@ class ShoesController < ApplicationController
     @user = current_user
     @user_shoes = UserShoe.where(user: @user)
     @user_shoe = UserShoe.find(params[:id])
+    @check_ins = CheckIn.where(user_shoe: @user_shoe)
+
+    if !@check_ins.empty?
+      @last_check_in = Date.parse(
+        CheckIn.where(user_shoe: @user_shoe).last.date)
+      @total_check_ins = CheckIn.where(user_shoe: @user_shoe).count
+    else
+      @last_check_in = nil
+    end
 
     respond_to do |format|
       format.js

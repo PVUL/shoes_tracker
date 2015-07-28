@@ -1,39 +1,46 @@
-<div>
-  <%- if !@check_ins.empty? -%>
-    <Table class="full-width">
-      <tr>
-        <td>S</td>
-        <td>M</td>
-        <td>T</td>
-        <td>W</td>
-        <td>T</td>
-        <td>F</td>
-        <td>S</td>
-      </tr>
-      <tr>
-        <% @last_week.each do |day| %>
-          <td>
-            <%#= day %>
-            <% @last_week_check_ins.each do |check_in| %>
-              <% if check_in.date == day %>
-                <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
-              <%- end -%>
-            <%- end -%>
-          </td>
-        <%- end -%>
-      </tr>
-      <tr>
-        <% @this_week.each do |day| %>
-          <td>
-            <%#= day %>
-            <% @this_week_check_ins.each do |check_in| %>
-              <% if check_in.date == day %>
-                <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
-              <%- end -%>
-            <%- end -%>
-          </td>
-        <%- end -%>
-      </tr>
-    </table>
-  <%- end -%>
+<div id="calendar">
+  <div class="calendar_content">
+    <%- if !@check_ins.empty? -%>
+      <Table align="center">
+        <tr>
+          <td><p>S</p></td>
+          <td><p>M</p></td>
+          <td><p>T</p></td>
+          <td><p>W</p></td>
+          <td><p>T</p></td>
+          <td><p>F</p></td>
+          <td><p>S</p></td>
+        </tr>
+        <tr>
+          <% @last_week.each do |day| %>
+            <td>
+              <p>
+                <%#= day %>
+                <% @last_week_check_ins.each do |check_in| %>
+                  <% if check_in.date == day.strftime("%Y-%m-%d") %>
+                    <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
+                  <%- end -%>
+                <%- end -%>
+              </p>
+            </td>
+          <%- end -%>
+        </tr>
+        <tr>
+          <% @this_week.each do |day| %>
+            <td>
+              <p>
+                <%#= day %>
+                <% @this_week_check_ins.each do |check_in| %>
+
+                  <% if check_in.date == day.strftime("%Y-%m-%d") %>
+                    <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
+                  <%- end -%>
+                <%- end -%>
+              </p>
+            </td>
+          <%- end -%>
+        </tr>
+      </table>
+    <%- end -%>
+  </div>
 </div>

@@ -27,7 +27,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :calendar do
-    process resize_to_fill: [50, 50]
+    process resize_to_fill: [75, 75]
   end
 
   # You can find full list of custom headers in AWS SDK documentation on
