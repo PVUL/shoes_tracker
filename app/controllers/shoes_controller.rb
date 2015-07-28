@@ -44,7 +44,8 @@ class ShoesController < ApplicationController
     @check_ins = CheckIn.where(user_shoe: @user_shoe)
 
     if !@check_ins.empty?
-      @last_check_in = Date.parse(CheckIn.where(user_shoe: @user_shoe).last.date)
+      @last_check_in = Date.parse(
+        CheckIn.where(user_shoe: @user_shoe).last.date)
       @total_check_ins = CheckIn.where(user_shoe: @user_shoe).count
     else
       @last_check_in = nil
