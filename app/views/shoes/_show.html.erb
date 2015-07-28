@@ -1,6 +1,5 @@
-<div id="test2" class="text-center">
-  <%#= link_to 'back to my shoes', root_path -%><br>
-  <%= image_tag(@user_shoe.image_url(:small)) %>
+<div id="test2" class="text-center hide-for-large-up"><br>
+  <%= image_tag(@user_shoe.image_url(:thumb)) %>
     <table class="full-width">
       <tr>
         <th>Model</th>
@@ -13,6 +12,12 @@
         <td><%= @user_shoe.shoe.color %></td>
       </tr>
     </table>
+    <div>
+      <%- if !@last_check_in.nil? -%>
+        <h3>Last worn: <%= @last_check_in.strftime("%A, %B %d, %Y") %></h3>
+        <h3>Total wear count: <%= @total_check_ins %></h3><br>
+      <%- end -%>
+    </div>
   <%= link_to '<button>check in</button>'.html_safe, shoe_check_ins_path(@user_shoe), method: :post %><br>
   <%= link_to '<button>delete</button>'.html_safe, shoe_path(@user_shoe), method: :delete %>
 </div>

@@ -24,7 +24,7 @@
               <%= user_shoe.shoe.brand %>
               <%= user_shoe.shoe.color %></td>
               <td><%= user_shoe.check_ins.count %></td>
-              <td><%= user_shoe.check_ins.pluck(:created_at).last %></td>
+              <td><%= user_shoe.check_ins.pluck(:date).last %></td>
             </tr>
           <%- end -%>
         </table>
@@ -70,7 +70,9 @@
             <%- if !@shoe_of_week.nil? -%>
               <p><%= image_tag(@shoe_of_week.image_url(:small)) %></p>
             <%- else -%>
-              <p>No check ins this week</p>
+              <div class="wordy">
+                <p>No check ins this week</p>
+              </div>
             <%- end -%>
           </div>
 

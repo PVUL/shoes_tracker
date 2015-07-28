@@ -1,29 +1,15 @@
 <div id="calendar">
   <div class="calendar_content">
     <%- if !@check_ins.empty? -%>
-      <Table class="full-width">
+      <Table align="center">
         <tr>
-          <td><p>
-            S
-          </p></td>
-          <td><p>
-            M
-          </p></td>
-          <td><p>
-            T
-          </p></td>
-          <td><p>
-            W
-          </p></td>
-          <td><p>
-            T
-          </p></td>
-          <td><p>
-            F
-          </p></td>
-          <td><p>
-            S
-          </p></td>
+          <td><p>S</p></td>
+          <td><p>M</p></td>
+          <td><p>T</p></td>
+          <td><p>W</p></td>
+          <td><p>T</p></td>
+          <td><p>F</p></td>
+          <td><p>S</p></td>
         </tr>
         <tr>
           <% @last_week.each do |day| %>
@@ -31,7 +17,7 @@
               <p>
                 <%#= day %>
                 <% @last_week_check_ins.each do |check_in| %>
-                  <% if check_in.date == day %>
+                  <% if check_in.date == day.strftime("%Y-%m-%d") %>
                     <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
                   <%- end -%>
                 <%- end -%>
@@ -45,7 +31,8 @@
               <p>
                 <%#= day %>
                 <% @this_week_check_ins.each do |check_in| %>
-                  <% if check_in.date == day %>
+
+                  <% if check_in.date == day.strftime("%Y-%m-%d") %>
                     <%= image_tag(check_in.user_shoe.image_url(:calendar)) %>
                   <%- end -%>
                 <%- end -%>

@@ -12,6 +12,14 @@
 #row-margin-zero {
   margin: 0;
 }
+#test2 th {
+  text-align: center;
+  width: 33.3333%;
+}
+#test2 td {
+  text-align: center;
+  width: 33.3333%;
+}
 
 .max-width {
   max-width: 100%;
@@ -73,7 +81,7 @@
 }
 .dashboard p {
   color: #707070;
-  font-size: 4rem;
+  font-size: 4.5rem;
   text-align: center;
 }
 .dashboard .wordy p{
